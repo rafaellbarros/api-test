@@ -6,6 +6,8 @@ import org.hamcrest.CoreMatchers;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.time.LocalDate;
+
 public class APITest {
 
     @BeforeClass
@@ -26,7 +28,7 @@ public class APITest {
     @Test
     public void deveAdicionarTarefaComSucesso() {
         RestAssured.given()
-                .body("{ \"task\": \"Teste via API\", \"dueDate\": \"2021-06-23\"}")
+                .body("{ \"task\": \"Teste via API\", \"dueDate\": \""+LocalDate.now()+"\"}")
                     .contentType(ContentType.JSON)
                 .when()
                     .post("/todo")
